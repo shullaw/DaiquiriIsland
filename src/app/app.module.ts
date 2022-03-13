@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,7 +8,10 @@ import { CardComponent } from './components/card/card.component';
 import { CarouselPauseComponent } from './components/carousel-pause/carousel-pause.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
-import { DaiquiriCupComponent } from './components/daiquiri-cup/daiquiri-cup.component'
+import { DaiquiriCupComponent } from './components/daiquiri-cup/daiquiri-cup.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { DaiquiriFadeComponent } from './components/daiquiri-fade/daiquiri-fade.component'
+
 
 @NgModule({
   declarations: [
@@ -15,10 +19,13 @@ import { DaiquiriCupComponent } from './components/daiquiri-cup/daiquiri-cup.com
     CardComponent,
     CarouselPauseComponent,
     DaiquiriCupComponent,
+    NavBarComponent,
+    DaiquiriFadeComponent,
   
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     NgbModule,
     FormsModule

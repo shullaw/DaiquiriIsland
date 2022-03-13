@@ -1,2 +1,18 @@
-<img class="daiquiri-image-1" style="width: 100%;
-  height: auto;" src="../../../assets/images/190-Octane.png"/>
+<!-- <img class="daiquiri-image fade" src="../../../assets/img/daiquiri/orange-octane.png"/> -->
+
+<!-- <button (click)="add()" >ADD ITEM TO SEE IT FADE IN</button> -->
+
+<!-- <div *ngIf="inView"> -->
+  <!-- <div *ngIf="daiquiris">
+   <span @fade >
+     <img class="daiquiri-image" src="../../../assets/img/daiquiri/{{ inView }}.png"/>
+    </span>
+</div>  -->
+
+<button (click)="add()">ADD ITEM TO SEE IT FADE IN</button>
+
+<div *ngFor="let daq of inView">
+  <span><img @fadeOut class="daiquiri-image" src="../../../assets/img/daiquiri/{{ daq }}.png"/>
+    <!-- <img @fadeOut class="daiquiri-image" src="../../../assets/img/daiquiri/{{ daq }}.png"/> -->
+  </span>
+</div>

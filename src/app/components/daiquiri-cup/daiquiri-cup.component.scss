@@ -1,14 +1,36 @@
-img {
-    width: 40%;
-    float: left;
+@keyframes appear {
+  from {
+    opacity: 0;
   }
-  
-  .daiquiri-image-1 {
-    filter: invert(100%);
-    -webkit-filter: invert(100%);
+  to {
+    opacity: 1;
   }
-  
-  .daiquiri-image-2 {
-    filter: sepia(100%);
-    -webkit-filter: sepia(100%);
+}
+@keyframes disappear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+  .daiquiri-image {
+    // &.fade {
+    //   transition: 1s linear all;
+    //   -webkit-transition: 1s linear all;
+    
+    // &.fade.ng-enter {
+    //   animation: 2s appear;
+    // }
+    
+    // &.fade.ng-leave {
+    //   animation: 1s disappear;
+    // }
+    // }
+    justify-content:center;
+    // width:70%; 
+    height: 90vh;
+    object-fit: scale-down;
+
   }

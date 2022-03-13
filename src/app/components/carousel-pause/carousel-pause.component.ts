@@ -1,13 +1,25 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
+import {trigger, style, animate, transition} from '@angular/animations';
+import { DaiquiriCupComponent } from '../daiquiri-cup/daiquiri-cup.component';
+
 
 @Component(
   {
     selector: 'app-carousel-pause', 
     templateUrl: './carousel-pause.component.html',
-    styleUrls: ['./carousel-pause.component.scss']
+    styleUrls: ['./carousel-pause.component.scss'],
+    animations: [
+      trigger('fadeIn', [ 
+        transition('void => *', [
+          style({ opacity: 0 }), 
+          animate(2000, style({opacity: 1}))
+        ])
+    ])]
   })
+
 export class CarouselPauseComponent {
+
   images = [62, 83, 466, 965, 982, 1043, 738].map((n) => `https://picsum.photos/id/${n}/900/500`);
 
   paused = false;
