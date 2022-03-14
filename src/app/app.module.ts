@@ -10,7 +10,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
 import { DaiquiriCupComponent } from './components/daiquiri-cup/daiquiri-cup.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { DaiquiriFadeComponent } from './components/daiquiri-fade/daiquiri-fade.component'
+import { DaiquiriFadeComponent } from './components/daiquiri-fade/daiquiri-fade.component';
+import { TimerComponent } from './components/timer/timer.component'
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { DaiquiriFadeComponent } from './components/daiquiri-fade/daiquiri-fade.
     DaiquiriCupComponent,
     NavBarComponent,
     DaiquiriFadeComponent,
+    TimerComponent,
   
   ],
   imports: [

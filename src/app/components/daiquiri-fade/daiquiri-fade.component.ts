@@ -17,20 +17,14 @@ import { Daiquiri } from '../../shared/services/fade.service';
   styleUrls: ['./daiquiri-fade.component.scss'],
   animations: [
     // the fade-in/fade-out animation.
-    trigger('simpleFadeAnimation', [
-
-      // the "in" style determines the "resting" state of the element when it is visible.
-      state('in', style({opacity: 1})),
-
-      // fade in when created. this could also be written as transition('void => *')
-      transition(':enter', [
-        style({opacity: 0}),
-        animate(600 )
+        trigger('fade', [
+      transition('void => active', [
+        style({ opacity: 0 }),
+        animate(1000, style({ opacity: 1 }))
       ]),
-
-      // fade out when destroyed. this could also be written as transition('void => *')
-      transition(':leave',
-        animate(600, style({opacity: 0})))
+      transition('* => void', [
+        animate(1000, style({ opacity: 0 }))
+      ])
     ])
   ]
 })

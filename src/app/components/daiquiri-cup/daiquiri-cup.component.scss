@@ -1,36 +1,109 @@
-@keyframes appear {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes disappear {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-  .daiquiri-image {
-    // &.fade {
-    //   transition: 1s linear all;
-    //   -webkit-transition: 1s linear all;
+  // .daiquiri-image {
+  //   // &.fade {
+  //   //   transition: 1s linear all;
+  //   //   -webkit-transition: 1s linear all;
     
-    // &.fade.ng-enter {
-    //   animation: 2s appear;
-    // }
+  //   // &.fade.ng-enter {
+  //   //   animation: 2s appear;
+  //   // }
     
-    // &.fade.ng-leave {
-    //   animation: 1s disappear;
-    // }
-    // }
-    justify-content:center;
-    // width:70%; 
-    height: 90vh;
-    object-fit: scale-down;
+  //   // &.fade.ng-leave {
+  //   //   animation: 1s disappear;
+  //   // }
+  //   // }
+  //   justify-content:center;
+  //   // width:70%; 
+  //   // position:relative;
+  //   height: 90vh;
+  //   object-fit: scale-down;
+  //   }
 
-  }
+  //   #stage {
+  //     display:flex;
+  //     justify-content:center;
+  //     width: 50vw;
+  //     height: 90vh;
+  //   }
+  
+  //   #stage a {
+  //     position: absolute;
+  //   }
+  //   #stage a img {
+  //     padding: 10px;
+  //     background-color: white;
+
+  //   }
+  
+  //   #stage a:nth-of-type(1) {
+  //     animation-name: fader;
+  //     animation-delay: 4s;
+  //     animation-duration: 1s;
+  //     z-index: 20;
+  //   }
+  //   #stage a:nth-of-type(2) {
+  //     z-index: 10;
+  //   }
+  //   #stage a:nth-of-type(n+3) {
+  //     display: none;
+  //   }
+  
+  //   @keyframes fader {
+  //     from { opacity: 1.0; }
+  //     to   { opacity: 0.0; }
+  //   }
+
+    .container {
+      position: relative;
+      width: 50%;
+    }
+    
+    .image {
+      display: block;
+      width: 100%;
+      height: auto;
+      // opacity: 1;
+      transition: .75s ease;
+    }
+    
+    .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      transition: .75s ease;
+      background-image: url("../../../assets/img/daiquiri/orange-octane.png")
+    }
+    
+    
+    // .container:hover .overlay {
+    //   opacity: 1;
+    // }
+
+    .container:hover .image {
+      opacity: 0;
+    }
+    
+    .container:hover .overlay:nth-of-type(1) {
+      opacity: 1;
+    }
+    
+    .text {
+
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      // top: 50%;
+      // left: 50%;
+      // -webkit-transform: translate(-50%, -50%);
+      // -ms-transform: translate(-50%, -50%);
+      // transform: translate(-50%, -50%);
+      // text-align: center;
+    }

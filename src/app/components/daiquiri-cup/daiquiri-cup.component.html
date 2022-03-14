@@ -3,16 +3,37 @@
 <!-- <button (click)="add()" >ADD ITEM TO SEE IT FADE IN</button> -->
 
 <!-- <div *ngIf="inView"> -->
-  <!-- <div *ngIf="daiquiris">
+<!-- <div *ngIf="daiquiris">
    <span @fade >
      <img class="daiquiri-image" src="../../../assets/img/daiquiri/{{ inView }}.png"/>
     </span>
 </div>  -->
 
-<button (click)="add()">ADD ITEM TO SEE IT FADE IN</button>
+<!-- <button (click)="add()">ADD ITEM TO SEE IT FADE IN</button> -->
+<!-- <div id="stage"> -->
+  <!-- <app-timer></app-timer> -->
 
-<div *ngFor="let daq of inView">
-  <span><img @fadeOut class="daiquiri-image" src="../../../assets/img/daiquiri/{{ daq }}.png"/>
-    <!-- <img @fadeOut class="daiquiri-image" src="../../../assets/img/daiquiri/{{ daq }}.png"/> -->
-  </span>
+  <div class="container">
+<!-- <div *ngFor="let daq of daiquiris"> -->
+
+  <div *ngIf="mouseEnter">
+    <img src="../../../assets/img/daiquiri/{{daiquiris[counter]}}.png" alt="Avatar" class="image"
+    (mouseenter) ="mouseEnter() ">
+  </div>
+  <!-- <div *ngIf="mouseLeave">
+    <img src="../../../assets/img/daiquiri/{{daiquiris[counter]}}.png" alt="Avatar" class="image" display:none
+    (mouseenter) ="mouseEnter() ">
+  </div> -->
+
+
+<!-- </div> -->
+</div>   
+
+
+<!-- <div class="overlay">
+  <img class="text" src="../../../assets/img/daiquiri/orange-octane.png" alt="Avatar">
 </div>
+<div class="overlay">
+  <img class="text" src="../../../assets/img/daiquiri/blue-dolphin.png" alt="Avatar">
+</div>
+</div> -->
