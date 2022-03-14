@@ -1,4 +1,4 @@
-# DaquiriIsland
+# DaiquiriIsland
 
 Small webapp for displaying a menu.
 
