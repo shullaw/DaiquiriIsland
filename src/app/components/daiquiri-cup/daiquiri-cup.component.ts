@@ -33,24 +33,30 @@ export class DaiquiriCupComponent implements OnInit {
   counter: number = 0;
   source!: Observable<number>;
   time!: Subscription;
-  t!: number;
 
-
-  timer(): void {
-  /*
-    timer takes a second argument, how often to emit subsequent values
-    in this case we will emit first value after 1 second and subsequent
-    values every 2 seconds after
-  */
-  this.source = timer(1000, 2000);
-  //output: 0,1,2,3,4,5......
-  this.source.subscribe(val => this.t = val);
-  }
+  // timer(): void {
+  //   /*
+  //     timer takes a second argument, how often to emit subsequent values
+  //     in this case we will emit first value after 1 second and subsequent
+  //     values every 2 seconds after
+  //   */
+  //   this.source = timer(1000, 2000)
+  //   // this.source.subscribe(val => this.counter += 1);
+  //   // this.source.pipe(map(i => this.counter++))
+  //   // this.source.subscribe(val => console.log(this.counter));
+  //   this.source.subscribe(val => {
+  //     this.counter++;
+  //     console.log("val: " + val, "counter: " + this.counter, "len: " + this.daiquiris.length);
+  //     if (this.counter >= this.daiquiris.length) {
+  //     this.counter = 0;
+  //   }
+  // });
+  // }
 
   mouseEnter() {
     // console.log("mouse enter : " + div);
     this.counter++;
-    this.transition();
+    // this.transition();
   }
 
   mouseLeave() {
@@ -58,13 +64,13 @@ export class DaiquiriCupComponent implements OnInit {
     // this.counter++;
   }
 
-  transition() {
-    console.log(this.t);
-    if (this.t % 2 == 0){
-      this.counter++;
-    }
-    
-  }
+  // transition() {
+  //   console.log(this.t);
+  //   if (this.t % 2 == 0){
+  //     this.counter++;
+  //   }
+
+  // }
 
 
   constructor() {
@@ -73,7 +79,7 @@ export class DaiquiriCupComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.timer();
+    // this.timer();
 
   }
 
