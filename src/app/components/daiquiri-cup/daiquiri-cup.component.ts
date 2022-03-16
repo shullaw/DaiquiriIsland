@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { map, Observable, Subscription, timer } from 'rxjs';
 
 @Component({
   selector: 'app-daiquiri-cup',
@@ -30,25 +31,50 @@ export class DaiquiriCupComponent implements OnInit {
 
   inView: any = [];
   counter: number = 0;
+  source!: Observable<number>;
+  time!: Subscription;
+  t!: number;
 
-  mouseEnter(){
+
+  timer(): void {
+  /*
+    timer takes a second argument, how often to emit subsequent values
+    in this case we will emit first value after 1 second and subsequent
+    values every 2 seconds after
+  */
+  this.source = timer(1000, 2000);
+  //output: 0,1,2,3,4,5......
+  this.source.subscribe(val => this.t = val);
+  }
+
+  mouseEnter() {
     // console.log("mouse enter : " + div);
     this.counter++;
- }
+    this.transition();
+  }
 
- mouseLeave(){
-  //  console.log('mouse leave :' + div);
-  // this.counter++;
- }
+  mouseLeave() {
+    //  console.log('mouse leave :' + div);
+    // this.counter++;
+  }
 
-
-  constructor() { 
+  transition() {
+    console.log(this.t);
+    if (this.t % 2 == 0){
+      this.counter++;
+    }
     
   }
 
 
+  constructor() {
+
+  }
+
+
   ngOnInit(): void {
-    
+    this.timer();
+
   }
 
 }
