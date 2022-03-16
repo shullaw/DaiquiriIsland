@@ -1,18 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
-import { Daiquiri } from '../../shared/services/fade.service';
+// import { Daiquiri } from '../../shared/services/fade.service';
 
 
 @Component({
   selector: 'app-daiquiri-fade',
   template: `
-    <div class="list-container">
-      <div class="list-item" *ngFor="let daq of daiquiris"
-        [@simpleFadeAnimation]="'in'">
-        {{ daq.name }}
-      </div>
-    </div>
+    <img src="../../../assets/img/daiquiri/{{daiquiri}}.png" alt="Avatar" class="image">
+
   `,
   styleUrls: ['./daiquiri-fade.component.scss'],
   animations: [
@@ -29,6 +25,26 @@ import { Daiquiri } from '../../shared/services/fade.service';
   ]
 })
 export class DaiquiriFadeComponent {
-   @Input()
-  daiquiris!: Daiquiri[];
+   @Input() daiquiri: string = '';
+   @Input() counter: number = 0;
+   daiquirisList: { str: string; status: string }[] = [
+    {
+      str: 'added :' + 0,
+      status: 'active',
+    },
+  ];
+
+  addItem() {
+    this.deleteRandom();
+    this.counter++;
+    this.daiquirisList.push({
+      str: 'added :' + this.counter,
+      status: 'active',
+    });
+  }
+
+  deleteRandom() {
+    this.daiquirisList.splice(0, 1);
+  }
+  // daiquiris!: Daiquiri[];
 }

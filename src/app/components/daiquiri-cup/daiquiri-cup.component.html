@@ -16,17 +16,19 @@
   <div class="container">
 <!-- <div *ngFor="let daq of daiquiris"> -->
 
-  <div *ngIf="mouseEnter">
+  <!-- <div *ngIf="mouseEnter">
     <img src="../../../assets/img/daiquiri/{{daiquiris[counter]}}.png" alt="Avatar" class="image"
     (mouseenter) ="mouseEnter()">
-  </div>
+  </div> -->
   <!-- <img src="../../../assets/img/daiquiri/{{daiquiris[counter]}}.png" alt="Avatar" class="image"> -->
   <!-- <div *ngIf="mouseLeave">
     <img src="../../../assets/img/daiquiri/{{daiquiris[counter]}}.png" alt="Avatar" class="image" display:none
     (mouseenter) ="mouseEnter() ">
   </div> -->
 
-
+  <div *ngFor="let daq of daiquirisList" [@fade]="daq.status">
+    <img src="../../../assets/img/daiquiri/{{daiquiris[counter]}}.png" alt="Avatar" class="image" style="position:absolute;">
+  </div>
 <!-- </div> -->
 </div>   
 

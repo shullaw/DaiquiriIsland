@@ -53,13 +53,16 @@
   //   }
 
     .container {
+      top:0px;
       position: relative;
-      width: 50%;
+      justify-content: center;
+      width: 50vw;
     }
     
     .image {
-      display: block;
-      width: 100%;
+      display: flex;
+      width: 50vw;
+      height: 100vh;
       height: auto;
       // opacity: 1;
       transition: .75s ease;
