@@ -10,7 +10,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
 import { DaiquiriCupComponent } from './components/daiquiri-cup/daiquiri-cup.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { DaiquiriFadeComponent } from './components/daiquiri-fade/daiquiri-fade.component';
 import { TimerComponent } from './components/timer/timer.component'
 
 
@@ -21,7 +20,6 @@ import { TimerComponent } from './components/timer/timer.component'
     CarouselPauseComponent,
     DaiquiriCupComponent,
     NavBarComponent,
-    DaiquiriFadeComponent,
     TimerComponent,
   
   ],
@@ -31,6 +29,7 @@ import { TimerComponent } from './components/timer/timer.component'
     AppRoutingModule,
     NgbModule,
     FormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
