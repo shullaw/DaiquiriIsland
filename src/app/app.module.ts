@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 import { CardComponent } from './components/card/card.component';
 import { CarouselPauseComponent } from './components/carousel-pause/carousel-pause.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DaiquiriCupComponent } from './components/daiquiri-cup/daiquiri-cup.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { TimerComponent } from './components/timer/timer.component'
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import { TeamsComponent } from './components/teams/teams.component';
 
 
 @NgModule({
@@ -21,15 +23,16 @@ import { TimerComponent } from './components/timer/timer.component'
     DaiquiriCupComponent,
     NavBarComponent,
     TimerComponent,
-  
+    TeamsComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule
-    
+    FormsModule,
+    ReactiveFormsModule,
+    ScrollingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

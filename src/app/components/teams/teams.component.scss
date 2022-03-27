@@ -1,0 +1,78 @@
+.container {
+    display: flex;
+    align-self: center;
+  }
+  
+//   li {
+//     margin: 2em;
+//     color: white;
+//     list-style: none;
+
+//   }
+//   .mdc-list-item__primary-text {
+//     &:nth-child(2n) {
+//         background-color: aqua;
+//     }
+//     &:nth-child(2n + 1) {
+//         background-color: aquamarine;
+//     }
+//   }
+  
+  .viewport {
+    height: 75vh;
+    width: 20vw;
+    background: transparent;
+    margin: 8em 8em 8em;
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll; 
+    background-color: rgba(0, 0, 0, 0.26);
+    border-radius: 16px;
+    &::-webkit-scrollbar {
+        display: none; /* for Chrome, Safari, and Opera */
+    }
+  }
+
+/* List */
+ ul {
+    counter-reset: index;  
+    padding: 0;
+    max-width: 300px;
+    
+  }
+  
+  /* List element */
+  li {
+    counter-increment: index; 
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    box-sizing: border-box;
+    // background-color: rgba(0, 0, 0, 0.26);
+  }
+  
+  
+  /* Element counter */
+ ul {
+    // content: counters(index, ".", decimal-leading-zero);
+    font-size: 1.5rem;
+    text-align: right;
+    font-weight: bold;
+    min-width: 50px;
+    padding-right: 12px;
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+    align-self: flex-start;
+    background-attachment: fixed;
+    background-image: linear-gradient(to bottom, orangered, rgb(0, 255, 170)) !important;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+  }
+  
+  
+  /* Element separation */
+ li + li {
+    border-top: 1px solid rgba(255,255,255,0.2);
+
+
+  }

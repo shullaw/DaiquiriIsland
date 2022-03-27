@@ -1,0 +1,20 @@
+export const teams = [
+  {"name": 'Banana'},
+  {"name": 'Blue Dolphin'},
+  {"name":'Bull Frog'},
+  {"name":'Crown & Coke'},
+  {"name":'Peach'},
+  {"name":'Incredible Hulk'},
+  {"name":'Kiwi Strawberry'},
+  {"name":'Hypnotiq'},
+  {"name":'Mango'},
+  {"name":'Orange Octane'},
+  {"name":'Pina Colada'},
+  {"name":'Pink Lemonade'},
+  {"name":'Screw Driver'},
+  {"name":'Strawberry Pina Colada'},
+  {"name":'Strawberry'},
+  {"name":'Sweet Tart'},
+  {"name":'Ultimate Buzz'},
+  {"name":'White Russian'}
+  ];

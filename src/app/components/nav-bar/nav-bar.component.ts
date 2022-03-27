@@ -37,8 +37,11 @@ export class NavBarComponent implements OnInit {
 
   constructor() { }
 
+  
+
   ngOnInit(): void {
 
     this.isOpen = true;
   }
 }
+

@@ -1,9 +1,44 @@
-body { 
-  background: url("assets/img/nakamoto-forestry-armstrong-rustic-brown.jpg") no-repeat center center fixed; 
+@import url("https://fonts.googleapis.com/css?family=Muli:900");
+body::before{ 
+  // background: url("assets/img/nakamoto-forestry-armstrong-rustic-brown.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  content: "";
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  background: url(assets/img/nakamoto-forestry-armstrong-rustic-brown.jpg) no-repeat center center fixed;
+  background-size: cover;
+  z-index: -1;
+}
+
+.wooden-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  mix-blend-mode: darken;
+  text-shadow: 0 0 0.05em rgba(0, 0, 0, 0.2), -0.025em 0.025em 0.1em #000,
+    -0.05em 0.05em 0.1em #000, -0.1em 0.1em 0.3em #000,
+    -0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5);
+  translate: translate3d(0, 0, 0);
+  font-family: "Muli", sans-serif;
+  font-size: 32vmin;
+  line-height: 1;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
  
  :host {
