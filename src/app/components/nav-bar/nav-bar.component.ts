@@ -32,7 +32,6 @@ const animationParams = {
 
 export class NavBarComponent implements OnInit {
 
-  isOpen = false;
 
 
   constructor() { }
@@ -41,7 +40,6 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.isOpen = true;
   }
 }
 

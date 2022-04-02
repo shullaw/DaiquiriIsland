@@ -3,26 +3,12 @@
     align-self: center;
   }
   
-//   li {
-//     margin: 2em;
-//     color: white;
-//     list-style: none;
-
-//   }
-//   .mdc-list-item__primary-text {
-//     &:nth-child(2n) {
-//         background-color: aqua;
-//     }
-//     &:nth-child(2n + 1) {
-//         background-color: aquamarine;
-//     }
-//   }
   
   .viewport {
     height: 75vh;
     width: 20vw;
     background: transparent;
-    margin: 8em 8em 8em;
+    // margin: 8em 8em 8em;
     scrollbar-width: none; /* for Firefox */
     overflow-y: scroll; 
     background-color: rgba(0, 0, 0, 0.26);
