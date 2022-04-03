@@ -1,4 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Muli:900");
+html,
+body{
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+   
+}
+
 body::before{ 
   // background: url("assets/img/nakamoto-forestry-armstrong-rustic-brown.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -13,8 +21,8 @@ body::before{
   left: 0;
   display: block;
   background: url(assets/img/nakamoto-forestry-armstrong-rustic-brown.jpg) no-repeat center center fixed;
-  background-size: cover;
   z-index: -1;
+  
 }
 
 .wooden-text {
@@ -33,7 +41,8 @@ body::before{
     -0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5);
   translate: translate3d(0, 0, 0);
   font-family: "Muli", sans-serif;
-  font-size: 32vmin;
+  // font-size: 32vmin;
+  font-size: 20vw;
   line-height: 1;
   font-weight: 900;
   text-align: center;
