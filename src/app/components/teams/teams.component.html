@@ -1,10 +1,9 @@
-<!-- teams.component.html-->
-<!-- <div class="container"> -->
      <cdk-virtual-scroll-viewport itemSize="10" class="viewport">
         <ul>
-      <li class="mdc-list-item site-list-item__primary-text" *cdkVirtualFor="let team of teams" >
+      <li class="mdc-list-item site-list-item__primary-text" *cdkVirtualFor="let team of teams">
         {{team.name}}
       </li>
     </ul>
     </cdk-virtual-scroll-viewport>
-  <!-- </div> -->
+
+    <!-- *ngIf="team.liquors.includes('vodka')" -->

@@ -14,7 +14,6 @@ import { TimerComponent } from './components/timer/timer.component'
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { TeamsComponent } from './components/teams/teams.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
