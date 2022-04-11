@@ -1,4 +1,4 @@
-export const teams = [
+export const daiquiriList = [
   {"name": 'Amaretto Sour', 'liquors': ['Amaretto']},
   {"name": 'Banana', 'liquors': ['rum']},
   {"name": 'Blue Dolphin', 'liquors': ['rum', 'vodka', '190']},

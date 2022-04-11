@@ -1,9 +1,11 @@
 .toolbar {
-    position: absolute;
+    position: relative;
     top: 0;
-    right:0;
-    left:0;
-    height: 60px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    min-height: 60px;
+    // min-width: fit-content;
     display: flex;
     align-items: center;
     // background-color: #8819d2;
@@ -12,31 +14,82 @@
     // font-weight: 1000;
     font-family: Open Sans;
   }
-
-  .toolbar img {
-    margin: 0 16px;
-  }
-
-
-  // ____________________________ //
-
-  .menu-trigger {
-    cursor: pointer;
-    padding: 10px;
-    background-color: transparent;
+  
+  .side-menu {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    // width: 250px;
+    background: transparent;
     
   }
-  .menu-close {
+  
+  .menu-item {
+    text-align: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #dcdcdc;
+    // min-width: 100%;
+    transition: all 0.25s;
+    border-radius: 25px;
+    box-shadow: 0px 8px darken(transparent, 25);
+    transition: all .5s;
+    top: 0;
+    &:active {
+      top: 4px;
+      box-shadow: 0px 4px darken(transparent, 25);
+    }
+    &:hover {
+      transform: scale(1.05);
+    }
     cursor: pointer;
-    text-align: right;
-    padding: 10px 10px 0 0;
+    &:last-child {
+      border-bottom: none;
+    }
+    &:hover {
+      color: #c1c1c1;
+    }
+  }
+  
+
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+.toolbar {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    min-height: 60px;
+    min-width: fit-content;
+    display: flex;
+    align-items: center;
+    // background-color: #8819d2;
+    background-color: transparent;
+    color: white;
+    // font-weight: 1000;
+    font-family: Open Sans;
   }
   
   .side-menu {
     height: 100vh;
     position: fixed;
     top: 0;
-    width: 250px;
-    background: transparent;    
+    // width: 250px;
+    background: transparent;
   }
   
+  .menu-item {
+    text-align: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #dcdcdc;
+    min-width: 100%;
+    cursor: pointer;
+    &:last-child {
+      border-bottom: none;
+    }
+    &:hover {
+      color: #c1c1c1;
+    }
+  }
+}
+

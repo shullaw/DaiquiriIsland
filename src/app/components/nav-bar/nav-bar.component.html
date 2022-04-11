@@ -1,19 +1,24 @@
-<div class="toolbar" ngbDropdown #myDrop="ngbDropdown" class="side-menu" [@sideMenuLeft]>
+<div class="row">
+  <div class="col">
+<div class="toolbar" style="float:left;" ngbDropdown #myDrop="ngbDropdown" [@sideMenuLeft]>
   <button class="menu-item toolbar" role="banner" id="dropdownManual" ngbDropdownToggle>
     <img width="40" alt="Welcome Logo" src="../../../assets/img/island.png" />
-    <span id="demo2" class="menu-trigger"> Welcome to The Island!</span>
+    Menu
   </button>
   <div ngbDropdownMenu aria-labelledby="dropdownManual" class="side-menu">
-    <app-teams></app-teams>
+    <app-daiquiri-list></app-daiquiri-list>
   </div>
 </div>
-
-<div class="toolbar" style="right:0;" ngbDropdown #myDrop="ngbDropdown" class="side-menu" [@sideMenuRight]>
-  <button style="width:100%;" class="menu-item toolbar" role="banner" id="dropdownManual" ngbDropdownToggle>
+</div>
+<div class="col">
+<div class="toolbar" style="float:right;" ngbDropdown #myDrop="ngbDropdown" [@sideMenuRight]>
+  <button class="menu-item toolbar"  role="banner" id="dropdownManual" ngbDropdownToggle>
     <img width="40" alt="Welcome Logo" src="../../../assets/img/island.png" />
-    <span id="demo2" class="menu-trigger"> Filter by Liquor</span>
+    Filter by Liquor
   </button>
   <div ngbDropdownMenu aria-labelledby="dropdownManual" class="side-menu">
-    <app-teams></app-teams>
+    <!-- <app-teams></app-teams> -->
   </div>
+</div>
+</div>
 </div>

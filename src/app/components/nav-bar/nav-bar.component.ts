@@ -48,8 +48,7 @@ const animationParams = {
 
 export class NavBarComponent implements OnInit {
 
-  @Input() teams: any;
-
+  @Input() daiquiriList: any;
 
 
   constructor() { }
@@ -59,5 +58,6 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
 }
 

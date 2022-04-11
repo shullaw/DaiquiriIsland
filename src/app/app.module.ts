@@ -12,7 +12,7 @@ import { DaiquiriCupComponent } from './components/daiquiri-cup/daiquiri-cup.com
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { TimerComponent } from './components/timer/timer.component'
 import {ScrollingModule} from '@angular/cdk/scrolling';
-import { TeamsComponent } from './components/teams/teams.component';
+import { DaiquiriListComponent } from './components/daiquiri-list/daiquiri-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { TeamsComponent } from './components/teams/teams.component';
     DaiquiriCupComponent,
     NavBarComponent,
     TimerComponent,
-    TeamsComponent,
+    DaiquiriListComponent,
   ],
   imports: [
     BrowserModule,

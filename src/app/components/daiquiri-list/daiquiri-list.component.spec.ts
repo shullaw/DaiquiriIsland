@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TeamsComponent } from './teams.component';
+import { DaiquiriListComponent } from './daiquiri-list.component';
 
-describe('TeamsComponent', () => {
-  let component: TeamsComponent;
-  let fixture: ComponentFixture<TeamsComponent>;
+describe('DaiquiriListComponent', () => {
+  let component: DaiquiriListComponent;
+  let fixture: ComponentFixture<DaiquiriListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TeamsComponent ]
+      declarations: [ DaiquiriListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TeamsComponent);
+    fixture = TestBed.createComponent(DaiquiriListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
