@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { map, Observable, Subscription, timer } from 'rxjs';
+import { map, Observable, Subject, Subscription, take, timer } from 'rxjs';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 
@@ -9,7 +9,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   styleUrls: ['./daiquiri-cup.component.scss'],
   animations: [
     // the fade-in/fade-out animation.
-        trigger('fade', [
+    trigger('fade', [
       transition('void => active', [
         style({ opacity: 0 }),
         animate(1000, style({ opacity: 1 }))
@@ -47,6 +47,8 @@ export class DaiquiriCupComponent implements OnInit {
   counter: number = 0;
   source!: Observable<number>;
   time!: Subscription;
+  componentDestroyed$: Subject<boolean> = new Subject()
+
   daiquirisList: { str: string; status: string }[] = [
     {
       str: this.daiquiris[this.counter],
@@ -67,27 +69,41 @@ export class DaiquiriCupComponent implements OnInit {
     this.daiquirisList.splice(0, 1);
   }
 
-  
-
   timer(): void {
     /*
       timer takes a second argument, how often to emit subsequent values
       in this case we will emit first value after 1 second and subsequent
       values every 2 seconds after
     */
-    this.source = timer(1000, 2000)
-    // this.source.subscribe(val => this.counter += 1);
-    // this.source.pipe(map(i => this.counter++))
-    // this.source.subscribe(val => console.log(this.counter));
-    this.source.subscribe(val => {
-      this.counter++;
-      this.addItem();
-      console.log("val: " + val, "counter: " + this.counter, "len: " + this.daiquiris.length);
-      if (this.counter >= this.daiquiris.length) {
-      this.counter = 0;
-    }
-  });
+    this.source = timer(1000, 2000);
+    this.source
+      .pipe(take(this.daiquiris.length))
+      .subscribe(val => {
+        this.counter++;
+        this.addItem();
+        if (this.counter >= this.daiquiris.length) {
+          this.counter = 0;
+          this.timer();
+        }
+      });
   }
+
+
+  constructor() {
+
+  }
+
+  ngOnInit(): void {
+    this.timer();
+
+  }
+
+  ngOnDestroy() {
+    // prevent memory leak when component destroyed
+    this.time.unsubscribe();
+  }
+
+
 
   mouseEnter() {
     // console.log("mouse enter : " + div);
@@ -107,16 +123,5 @@ export class DaiquiriCupComponent implements OnInit {
   //   }
 
   // }
-
-
-  constructor() {
-
-  }
-
-
-  ngOnInit(): void {
-    this.timer();
-
-  }
 
 }

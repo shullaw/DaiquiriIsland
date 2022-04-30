@@ -3,16 +3,21 @@
 //     align-self: center;
 //   }
   
-  
+.dropdown-menu {
+  color: transparent;
+}
   .viewport {
-    height: 95vh;
+    height: 90vh;
     width: 15vw;
     min-width: 100%;
     background: transparent;
     // margin: 8em 8em 8em;
     scrollbar-width: none; /* for Firefox */
     overflow-y: scroll; 
-    background-color: rgba(0, 0, 0, 0.26);
+    background-color: rgba(0, 0, 0, 0.25);
+    // background: url(../../../assets/img/nakamoto-forestry-armstrong-rustic-brown.jpg) no-repeat center center fixed;
+    filter: drop-shadow(4px 4px 100px rgb(3, 3, 3));
+    // filter:opacity(50%);
     border-radius: 16px;
     &::-webkit-scrollbar {
         display: none; /* for Chrome, Safari, and Opera */
@@ -39,41 +44,40 @@
   /* Element counter */
  ul {
     // content: counters(index, ".", decimal-leading-zero);
-    // font-size: 1.25rem;
+    font-size: 1.25rem;
     // font-size : 1.3vw;
     // white-space: nowrap;
     float: right;
-    font-weight: bold;
+    // font-weight: bold;
     min-width: 50px;
     // padding-right: 12px;
-    font-feature-settings: "tnum";
-    font-variant-numeric: tabular-nums;
-    align-self: flex-start;
-    background-attachment: fixed;
-    background-image: linear-gradient(to bottom, rgb(255, 230, 0), rgb(255, 0, 0)) !important;
+    // font-feature-settings: "tnum";
+    // font-variant-numeric: tabular-nums;
+    // align-self: flex-start;
+    // background-attachment: fixed;
+    // color: transparent;
+    background: url(../../../assets/img/nakamoto-forestry-armstrong-rustic-brown.jpg) no-repeat center center fixed;
+    // background-image: linear-gradient(to bottom, rgb(255, 230, 0), rgb(255, 0, 0)) !important;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    // -webkit-text-fill-color: transparent;
+    mix-blend-mode:lighten;
+    text-shadow: 0 0 0.05em rgb(0, 0, 0), -0.025em 0.025em 0.1em rgb(255, 255, 255),
+    -0.05em 0.05em 0.1em #000, -0.1em 0.1em 0.3em #000,
+    -0.1em 0.1em 0.5em rgba(255, 255, 255, 0.5);
+    translate: translate3d(0, 0, 0);
+    font-family: "Muli", sans-serif;
+    line-height: 1;
+    font-weight: 900;
+    // text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    // background-color: transparent;
+    color: crimson
   }
   
   
-  /* Element separation */
- li + li {
-    border-top: 1px solid rgba(255,255,255,0.2);
- }
-
-//  $purple: #c397d8;
-// $red: #d54e53;
-// $blue: #7aa6da;
-// $orange: #e78c45;
-// $turquoise: #4DD9B2;
-// $green: #b9ca4a;
-// $yellow: #FFDE00;
-// ul {
-//  background: linear-gradient($turquoise 0%, $turquoise 50%, $yellow 50%);
-//  background-size: 100% 200%;
-//  background-position: 100% 100%;
-//  transition: all 0.5s;
-//  &:hover {
-//    background-position: 0 0;
+//   /* Element separation */
+//  li + li {
+//     border-top: 1px solid rgba(0, 0, 0, 0.2);
 //  }
-// }
+

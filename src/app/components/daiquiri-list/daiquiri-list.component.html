@@ -2,7 +2,11 @@
 <cdk-virtual-scroll-viewport ngbDropdownMenu itemSize="10" class="viewport">
         <ul >
       <li class="mdc-list-item site-list-item__primary-text" *cdkVirtualFor="let daq of daiquiriList">
-        {{daq.name}}
+        <div class="wood-container">
+        <div class="wooden-text-list">
+          <div [style.color]="daq.color">{{daq.name}}</div>
+          </div>
+        </div>
       </li>
     </ul>
     </cdk-virtual-scroll-viewport>
