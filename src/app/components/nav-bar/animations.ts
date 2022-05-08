@@ -1,4 +1,6 @@
 import {
+  transition,
+  trigger,
   animate,
   animation,
   query,

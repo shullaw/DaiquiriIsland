@@ -1,13 +1,15 @@
-
-<cdk-virtual-scroll-viewport ngbDropdownMenu itemSize="10" class="viewport">
-        <ul >
-      <li class="mdc-list-item site-list-item__primary-text" *cdkVirtualFor="let daq of daiquiriList">
-        <div class="wood-container">
-        <div class="wooden-text-list">
-          <div [style.color]="daq.color">{{daq.name}}</div>
-          </div>
-        </div>
-      </li>
-    </ul>
-    </cdk-virtual-scroll-viewport>
-    <!-- *ngIf="team.liquors.includes('vodka')" -->
+<cdk-virtual-scroll-viewport itemSize="10" class="viewport" [@openClose]="isOpen ? 'open' : 'closed'">
+  <ul [@openClose]="isOpen ? 'open' : 'closed'">
+    <li class="mdc-list-item site-list-item__primary-text" *cdkVirtualFor="let daq of daiquiriList" >
+      <div
+      (mouseover)="daq.hovering=true"
+      (mouseout)="daq.hovering=false">
+        <span class="daq-text"
+          [ngStyle]="{color: daq.hovering==true  ? daq.color : 'transparent' }">
+          {{daq.name}}
+        </span>
+      </div>
+    </li>
+  </ul>
+</cdk-virtual-scroll-viewport>
+<!-- *ngIf="team.liquors.includes('vodka')" -->

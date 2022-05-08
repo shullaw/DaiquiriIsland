@@ -6,7 +6,7 @@
     margin: auto;
     min-height: 60px;
     // min-width: fit-content;
-    display: flex;
+    // display: flex;
     align-items: center;
     // background-color: #8819d2;
     background-color: transparent;
@@ -18,7 +18,7 @@
   .side-menu {
     height: 100vh;
     position: fixed;
-    top: 0;
+    top: 80px;
     // width: 250px;
     background: transparent;
     
@@ -92,4 +92,3 @@
     }
   }
 }
-

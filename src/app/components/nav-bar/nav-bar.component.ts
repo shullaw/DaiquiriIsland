@@ -1,10 +1,10 @@
-import { transition, trigger, useAnimation } from "@angular/animations";
-import { Component, Input, OnInit } from "@angular/core";
+import { trigger, transition, state, animate, style, useAnimation, } from '@angular/animations';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, Output, ViewChild } from "@angular/core";
 import { SidebarOpenAnimationRight, SidebarCloseAnimationLeft, SidebarCloseAnimationRight, SidebarOpenAnimationLeft } from './animations';
 
 const animationParams = {
   menuWidth: "250px",
-  animationStyle: "500ms ease"
+  animationStyle: "500ms ease-in"
 };
 @Component({
   selector: 'app-nav-bar',
@@ -43,21 +43,34 @@ const animationParams = {
         })
       ])
     ])
-  ]
+    ]
 })
 
 export class NavBarComponent implements OnInit {
 
+  // @ViewChild('navdrop') navdrop!: ElementRef;
+
   @Input() daiquiriList: any;
-
-
+  @Output() isOpen: boolean = false;
+  // contentHeight!: number;
   constructor() { }
 
   
 
   ngOnInit(): void {
-
   }
+  // ngAfterViewInit() {
+  //   this.contentHeight =  this.myIdentifier.nativeElement.offsetHeight;
+  // }
+  // ngOnChanges(changes: SimpleChanges) {
+  //   console.log(changes)
+  // }
+  toggle() {
+    console.log(this.isOpen);
+    // this.navdrop.nativeElement.classList.toggle("show");
+  }
+
+
 
 }
 

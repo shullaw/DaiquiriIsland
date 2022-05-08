@@ -28,14 +28,20 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "/assets"
+              }
             ],
             "styles": [
               "src/styles.scss"
             ],
             "scripts": [
               "node_modules/circletype/dist/circletype.min.js",
-              "src/assets/js/scripts.js"]
+              "src/assets/js/scripts.js"
+            ]
           },
           "configurations": {
             "production": {
