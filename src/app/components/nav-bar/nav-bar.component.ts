@@ -51,7 +51,7 @@ export class NavBarComponent implements OnInit {
   // @ViewChild('navdrop') navdrop!: ElementRef;
 
   @Input() daiquiriList: any;
-  @Output() isOpen: boolean = false;
+  @Output() isOpen: boolean = true;
   // contentHeight!: number;
   constructor() { }
 

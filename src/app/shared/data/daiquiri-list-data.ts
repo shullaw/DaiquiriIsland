@@ -2,7 +2,7 @@ export const daiquiriList = [
   {"name": 'Amaretto Sour', 'liquors': ['Amaretto'], 'color': 'chocolate', 'hover': false},
   {"name": 'Banana', 'liquors': ['rum'], 'color': 'yellow', 'hover': false},
   {"name": 'Blue Dolphin', 'liquors': ['rum', 'vodka', '190'], 'color': 'aqua', 'hover': false},
-  {"name":'Bull Frog', 'liquors': ['rum', '190'], 'color': 'green', 'hover': false},
+  {"name":'Bull Frog', 'liquors': ['rum', '190'], 'color': 'lawngreen', 'hover': false},
   {"name":'Crown & Coke', 'liquors': ['whiskey'], 'color': 'brown', 'hover': false},
   {"name":'Peach', 'liquors': ['rum'], 'color': 'peachpuff', 'hover': false},
   {"name":'Incredible Hulk', 'liquors': ['specialty'], 'color': 'aquamarine', 'hover': false},

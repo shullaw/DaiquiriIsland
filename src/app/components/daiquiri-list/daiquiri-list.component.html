@@ -1,15 +1,24 @@
-<cdk-virtual-scroll-viewport itemSize="10" class="viewport" [@openClose]="isOpen ? 'open' : 'closed'">
-  <ul [@openClose]="isOpen ? 'open' : 'closed'">
-    <li class="mdc-list-item site-list-item__primary-text" *cdkVirtualFor="let daq of daiquiriList" >
-      <div
+<div [style.height]="calculateContainerHeight()" >
+<cdk-virtual-scroll-viewport 
+(scrolledIndexChange)="nextBatch($event, daiquiriList)" 
+itemSize="64" class="viewport" #scrollViewport>
+  <ul [@openCloseItems]="isOpen ? 'open' : 'closed'" >
+    <li class="mdc-list-item site-list-item__primary-text" 
+    *cdkVirtualFor="let daq of daiquiriList; let i = index" >
+      <div 
       (mouseover)="daq.hovering=true"
       (mouseout)="daq.hovering=false">
-        <span class="daq-text"
-          [ngStyle]="{color: daq.hovering==true  ? daq.color : 'transparent' }">
-          {{daq.name}}
+        <span  
+        class="daq-text"
+        [ngStyle]="{color: daq.hovering==true  ? daq.color : 'rgba(0,0,0,.5)' }"
+        >
+        {{daq.name}}
         </span>
       </div>
     </li>
   </ul>
 </cdk-virtual-scroll-viewport>
+</div>
 <!-- *ngIf="team.liquors.includes('vodka')" -->
+
+<!-- [ngStyle]="{color: daq.hovering==true  ? daq.color : 'transparent' }" -->

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, AfterViewInit } from '@angular/core';
 import { DaiquiriListService } from '../../shared/services/daiquiri-list.service';
 import { trigger, transition, state, animate, style, useAnimation, } from '@angular/animations';
 
@@ -7,17 +7,60 @@ import { trigger, transition, state, animate, style, useAnimation, } from '@angu
   templateUrl: './daiquiri-list.component.html',
   styleUrls: ['./daiquiri-list.component.scss'],
   animations: [
-    trigger('openClose', [
+    trigger('openCloseItems', [
       // ...
       state('open', style({
         height: '90vh',
         opacity: 1,
-        backgroundColor: 'rgba(0,0,0,.5)'
+        backgroundColor: 'rgba(0,0,0,.5)',
+        textShadow: `0 0 0.05em rgba(0, 0, 0, 0.8), -0.025em 0.025em 0.1em rgba(161, 4, 179),
+        -0.05em 0.05em 0.1em rgb(255, 255, 255), -0.1em 0.1em 0.3em rgb(0, 0, 0),
+        -0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5)`,
+        
+      })),
+      state('closed', style({
+        height: '90vh',
+        opacity: 0.8,
+        backgroundColor: 'rgba(161, 4, 179)',
+        textShadow: `0 0 0.05em rgba(0, 0, 0, 0.8), -0.025em 0.025em 0.1em rgb(0, 0, 0),
+        -0.05em 0.05em 0.1em rgb(255, 255, 255), -0.1em 0.1em 0.3em rgb(0, 0, 0),
+        -0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5)`
+      })),
+      transition('open => closed', [
+        animate('1s')
+      ]),
+      transition('closed => open', [
+        animate('0.5s')
+      ]),
+      transition('* => closed', [
+        animate('1s')
+      ]),
+      transition('* => open', [
+        animate('0.5s')
+      ]),
+      transition('open <=> closed', [
+        animate('0.5s')
+      ]),
+      transition ('* => open', [
+        animate ('1s',
+          style ({ opacity: '*' }),
+        ),
+      ]),
+      transition('* => *', [
+        animate('1s')
+      ]),
+    ]),
+    trigger('openCloseContainer', [
+      // ...
+      state('open', style({
+        height: '90vh',
+        opacity: 1,
+        backgroundColor: 'rgba(0,0,0,.5)',
       })),
       state('closed', style({
         height: '0vh',
         opacity: 0.8,
-        backgroundColor: 'blue'
+        backgroundColor: 'rgba(161, 4, 179)',
       })),
       transition('open => closed', [
         animate('1s')
@@ -49,10 +92,15 @@ import { trigger, transition, state, animate, style, useAnimation, } from '@angu
 export class DaiquiriListComponent implements OnInit {
 
   daiquiriList: any = [];
+  currentColor!: string;
+  height!:number;
+  end!: number;
+  overflow!: string;
   ddStatus: string = "ddClosed";
   ddStyling: boolean = false;
   // @Input() contentHeight!: number;
   @Input() isOpen!: boolean;
+  @ViewChild('scrollViewport') cdkVirtualScrollViewport: any;
 
   constructor(private daiquiriListService: DaiquiriListService) {}
 
@@ -65,12 +113,35 @@ export class DaiquiriListComponent implements OnInit {
     this.daiquiriList = this.daiquiriListService.getDaiquiriList();
   }
 
-  dropDownClicked() {
-    (!this.ddStyling) ? this.ddStyling = true : this.ddStyling = false;
-    (this.ddStatus == 'ddClosed') ? this.ddStatus = 'ddOpened' : this.ddStatus = "ddClosed";
-  }
-
   hovered(i: number): boolean {
     return this.daiquiriList[i].hover = true;
   }
+
+  calculateContainerHeight(): string {
+    const numberOfItems = this.daiquiriList.length;
+    // This should be the height of your item in pixels
+    const itemHeight = 64;
+    // The final number of items you want to keep visible
+    const visibleItems = 15;
+    setTimeout(() => {
+      this.cdkVirtualScrollViewport.checkViewportSize();
+    }, 300);
+    if (numberOfItems <= visibleItems) {
+      console.log(`${itemHeight * numberOfItems}`);
+      return `${itemHeight * numberOfItems}px`;
+    }
+    return `${itemHeight * visibleItems}px`;
+  }
+
+  nextBatch(currIndex: number, items: any[]) {
+    const start = this.cdkVirtualScrollViewport.getRenderedRange().start;
+    this.end = this.cdkVirtualScrollViewport.getRenderedRange().end;
+    const total = this.cdkVirtualScrollViewport.getDataLength();
+console.log(`start = ${start}\nend is ${this.end}\ntotal is ${total}`)
+    // if (this.end == total) {
+    //   // console.log("end reached increase page no")
+    // }
+    
+  }
+
 }
