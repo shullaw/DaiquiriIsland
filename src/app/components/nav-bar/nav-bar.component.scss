@@ -13,6 +13,8 @@
     color: white;
     // font-weight: 1000;
     font-family: Open Sans;
+    // width:30vw;
+    // float:left;
   }
   
   .side-menu {
@@ -61,13 +63,14 @@
     margin: auto;
     min-height: 60px;
     min-width: fit-content;
-    display: flex;
     align-items: center;
     // background-color: #8819d2;
     background-color: transparent;
     color: white;
     // font-weight: 1000;
     font-family: Open Sans;
+    // width:fit-content;
+    // float:left;
   }
   
   .side-menu {
@@ -90,5 +93,19 @@
     &:hover {
       color: #c1c1c1;
     }
+  }
+}
+
+
+
+@media (min-width:640px) {
+  /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+}
+
+@media (min-width:1024px) {
+
+  /* big landscape tablets, laptops, and desktops */
+  ul {
+    font-size: 1.63rem;
   }
 }

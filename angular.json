@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "island": {
+    "daiquiri-island": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/island",
+            "outputPath": "dist/daiquiri-island",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -80,10 +80,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "island:build:production"
+              "browserTarget": "daiquiri-island:build:production"
             },
             "development": {
-              "browserTarget": "island:build:development"
+              "browserTarget": "daiquiri-island:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -91,7 +91,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "island:build"
+            "browserTarget": "daiquiri-island:build"
           }
         },
         "test": {
@@ -111,9 +111,19 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "daiquiri-island:build:production",
+            "firebaseProject": "daiquiri-island",
+            "firebaseHostingSite": "daiquiri-island"
+          }
         }
       }
     }
   },
-  "defaultProject": "island"
+  "defaultProject": "daiquiri-island"
 }

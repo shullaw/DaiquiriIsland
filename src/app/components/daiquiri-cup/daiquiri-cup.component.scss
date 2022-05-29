@@ -12,15 +12,32 @@ img {
 @media only screen and (max-width: 768px) {
       /* For mobile phones: */
     img {
-      // position: absolute;
-      // width: 100% !important; 
-      // margin:0 auto !important;
-      // top: 20% !important;
-      transition: .75s ease;
+      width: 70% !important; 
+      margin:0 auto !important;
+      top: 70% !important;
       position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-right: -50%;
-      transform: translate(-50%, -50%) 
+      // top: 50%;
+      // left: 50%;
+      // margin-right: -50%;
+      // transform: translate(-50%, -50%);
+    }
+  
+
+  .cups {
+      width: 70% !important; 
+      margin:0 auto !important;
+      top: 70% !important;
+      -webkit-animation: fadeinout 4s linear forwards;
+      animation: fadeinout 4s linear forwards;
+    }
+
+    @-webkit-keyframes fadeinout {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    
+    @keyframes fadeinout {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
     }
   }

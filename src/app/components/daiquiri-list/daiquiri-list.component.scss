@@ -19,17 +19,6 @@
   }
 }
 
-// .state-item {
-//   // height: 50px;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-// }
-// .list-group-item {
-//   margin: 0 !important;
-//   padding: 0 10px !important;
-// }
-
 /* List */
 ul {
   counter-reset: index;
@@ -45,6 +34,7 @@ li {
   align-items: center;
   padding: 12px 0;
   box-sizing: border-box;
+  font-size: xx-large;
 }
 
 .daq-text {
@@ -80,37 +70,77 @@ ul {
 }
 
 
-@media (min-width:320px) {
-  /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-}
-
-@media (min-width:480px) {
-  /* smartphones, Android phones, landscape iPhone */
-}
-
-@media (min-width:600px) {
-  /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-}
-
-@media (min-width:801px) {
-  /* tablet, landscape iPad, lo-res laptops ands desktops */
-}
-
-@media (min-width:1025px) {
-
-  /* big landscape tablets, laptops, and desktops */
+@media only screen and (max-width: 768px) {
+  .viewport {
+    height: 90vh;
+    width: 25vw;
+    // min-width: 30%;
+    background: transparent;
+    // margin: 8em 8em 8em;
+    scrollbar-width: none;
+    /* for Firefox */
+    // overflow-y: scroll;
+    // background-color: rgba(0, 0, 0, 0.25);
+    // background: url(../../../assets/img/nakamoto-forestry-armstrong-rustic-brown.jpg) no-repeat center center fixed;
+    // filter: drop-shadow(4px 4px 100px rgb(95, 95, 95));
+    // filter:opacity(50%);
+    border-radius: 16px;
+    top: 0px;
+    transition: 1s;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  
+  /* List */
   ul {
-    font-size: 1.63rem;
+    // counter-reset: index;
+    padding: 0;
+    max-width: 150px;
+  
+  }
+  
+  /* List element */
+  li {
+    counter-increment: index;
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    box-sizing: border-box;
+    font-size: 1.25rem;
+  }
+  
+  .daq-text {
+    margin-left: 5px;
+    height: 20px;
+    display: flex;
+    transition: all .75s;
+    &:hover {
+      transform: scale(1.1);
+      transform: translate3d(.5rem, -.5rem, .5rem);
+      cursor: pointer;
+    }
+  }
+  
+  /* Element counter */
+  ul {
+    min-width: 50px;
+    background: url(../../../assets/img/nakamoto-forestry-armstrong-rustic-brown.jpg) no-repeat center center fixed;
+    -webkit-background-clip: text;
+    mix-blend-mode: lighten;
+    // text-shadow: 0 0 0.5em rgb(0, 0, 0), -0.025em 0.025em 0.1em rgb(255, 255, 255),
+    // -0.05em 0.05em 0.1em #000, -0.1em 0.1em 0.3em #000,
+    // -0.1em 0.1em 0.5em rgba(255, 255, 255, 0.5);
+    // text-shadow: 0 0 0.05em rgba(0, 0, 0, 0.8), -0.025em 0.025em 0.1em rgb(0, 0, 0),
+    //   -0.05em 0.05em 0.1em rgb(254, 254, 254), -0.1em 0.1em 0.3em rgb(0, 0, 0),
+    //   -0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5);
+    translate: translate3d(0, 0, 0);
+    font-family: "Muli", sans-serif;
+    line-height: 1;
+    font-weight: 900;
+    text-transform: uppercase;
+    white-space: nowrap;
   }
 }
-
-@media (min-width:1281px) {
-
-  /* hi-res laptops and desktops */
-  ul {
-    font-size: 1.63rem;
-  }
-}
-
 
 

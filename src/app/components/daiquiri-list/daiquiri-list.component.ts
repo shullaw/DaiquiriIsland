@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild, AfterViewInit } from '@angular/core';
 import { DaiquiriListService } from '../../shared/services/daiquiri-list.service';
 import { trigger, transition, state, animate, style, useAnimation, } from '@angular/animations';
+import { timingSafeEqual } from 'crypto';
 
 @Component({
   selector: 'app-daiquiri-list',
@@ -12,14 +13,14 @@ import { trigger, transition, state, animate, style, useAnimation, } from '@angu
       state('open', style({
         height: '90vh',
         opacity: 1,
-        backgroundColor: 'rgba(0,0,0,.5)',
+        backgroundColor: 'rgba(0,0,0,.25)',
         textShadow: `0 0 0.05em rgba(0, 0, 0, 0.8), -0.025em 0.025em 0.1em rgba(161, 4, 179),
         -0.05em 0.05em 0.1em rgb(255, 255, 255), -0.1em 0.1em 0.3em rgb(0, 0, 0),
         -0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5)`,
         
       })),
       state('closed', style({
-        height: '90vh',
+        height: '70vh',
         opacity: 0.8,
         backgroundColor: 'rgba(161, 4, 179)',
         textShadow: `0 0 0.05em rgba(0, 0, 0, 0.8), -0.025em 0.025em 0.1em rgb(0, 0, 0),
@@ -54,11 +55,11 @@ import { trigger, transition, state, animate, style, useAnimation, } from '@angu
       // ...
       state('open', style({
         height: '90vh',
-        opacity: 1,
+        opacity: .8,
         backgroundColor: 'rgba(0,0,0,.5)',
       })),
       state('closed', style({
-        height: '0vh',
+        height: '70vh',
         opacity: 0.8,
         backgroundColor: 'rgba(161, 4, 179)',
       })),
@@ -89,7 +90,7 @@ import { trigger, transition, state, animate, style, useAnimation, } from '@angu
   ]
   
 })
-export class DaiquiriListComponent implements OnInit {
+export class DaiquiriListComponent implements OnInit, AfterViewInit {
 
   daiquiriList: any = [];
   currentColor!: string;
@@ -107,6 +108,13 @@ export class DaiquiriListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getGetDaiquiriList();
+    console.log("init: ", this.daiquiriList.length);
+  }
+
+  ngAfterViewInit(): void {
+    console.log(this.calculateContainerHeight());
+    console.log("after: ", this.daiquiriList.length);
+
   }
 
   getGetDaiquiriList(){
@@ -120,9 +128,9 @@ export class DaiquiriListComponent implements OnInit {
   calculateContainerHeight(): string {
     const numberOfItems = this.daiquiriList.length;
     // This should be the height of your item in pixels
-    const itemHeight = 64;
+    const itemHeight = 44;
     // The final number of items you want to keep visible
-    const visibleItems = 15;
+    const visibleItems = 5;
     setTimeout(() => {
       this.cdkVirtualScrollViewport.checkViewportSize();
     }, 300);

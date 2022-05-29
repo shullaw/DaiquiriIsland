@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Daiquiri, FadeService } from './shared/services/fade.service';
 
 
@@ -9,7 +9,7 @@ import { Daiquiri, FadeService } from './shared/services/fade.service';
   providers: [FadeService]
 })
 export class AppComponent {
-  title = 'island';
+  title = 'Daiquiri Island';
   daiquiris: Daiquiri[];
 
   constructor(private fadeService: FadeService) {
