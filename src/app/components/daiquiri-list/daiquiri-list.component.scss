@@ -1,3 +1,7 @@
+.accordion-button {
+  color: green !important;
+}
+
 .viewport {
   height: 90vh;
   width: 25vw;
@@ -35,13 +39,17 @@ li {
   padding: 12px 0;
   box-sizing: border-box;
   font-size: xx-large;
+
 }
 
 .daq-text {
   margin-left: 5px;
-  height: 20px;
+  height: 44px;
+  width:25vw;
   display: flex;
   transition: all .75s;
+  border-width: 10px;
+  border-radius: 10px;
   &:hover {
     transform: scale(1.1);
     transform: translate3d(.5rem, -.5rem, .5rem);

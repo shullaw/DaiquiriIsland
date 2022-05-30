@@ -1,23 +1,23 @@
 <!-- <div [style.height]="calculateContainerHeight()" > -->
-  <cdk-virtual-scroll-viewport 
-itemSize="50" class="viewport" #scrollViewport
-[@openCloseItems]="isOpen ? 'open' : 'closed'">
-  <!-- <ul [@openCloseItems]="isOpen ? 'open' : 'closed'" > -->
-    <li 
-    class="mdc-list-item site-list-item__primary-text" 
-    *cdkVirtualFor="let daq of daiquiriList; let i = index" >
-      <div 
-      (mouseover)="daq.hovering=true"
-      (mouseout)="daq.hovering=false">
-        <span  
-        class="daq-text"
-        [ngStyle]="{color: daq.hovering==true  ? daq.color : 'rgba(0,0,0,.5)' }"
+<cdk-virtual-scroll-viewport itemSize="50" class="viewport" #scrollViewport>
+  <ul>
+    <li class="mdc-list-item site-list-item__primary-text" *cdkVirtualFor="let daq of daiquiriList; let i = index"
+      (mouseover)="daq.hovering=true" (mouseout)="daq.hovering=false" (click)="daq.active = !daq.active"
+      class="daq-text"
+      [ngStyle]="{
+        color: daq.hovering ? daq.color : 'white',
+        border: '2px solid ' + daq.color,
+        textShadow: '0 0 0.05em rgba(0, 0, 0, 0.8), -0.025em 0.025em 0.1em rgba(161, 4, 179), -0.05em 0.05em 0.1em rgb(255, 255, 255), -0.1em 0.1em 0.3em rgb(0, 0, 0),-0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5)'}"
         >
+        <div>
         {{daq.name}}
-        </span>
-      </div>
+      <!-- <div *ngIf="daq.active" [@openCloseContainer]="daq.active ? 'open' : 'closed'">
+        CONTENT
+      </div> -->
+    </div>
+
     </li>
-  <!-- </ul> -->
+  </ul>
 </cdk-virtual-scroll-viewport>
 <!-- </div> -->
 <!-- *ngIf="team.liquors.includes('vodka')" -->

@@ -1,8 +1,13 @@
-import { Component, OnInit, Input, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, AfterViewInit, ContentChildren, QueryList, TemplateRef } from '@angular/core';
 import { DaiquiriListService } from '../../shared/services/daiquiri-list.service';
 import { trigger, transition, state, animate, style, useAnimation, } from '@angular/animations';
-import { timingSafeEqual } from 'crypto';
+import { DropSidebarOpenAnimation, DropSidebarCloseAnimation, DropDownAnimation, SidebarOpenAnimation, SidebarCloseAnimation } from './animations';
+import { AbsoluteSourceSpan } from '@angular/compiler';
 
+const animationParams = {
+  menuWidth: "250px",
+  animationStyle: "1s ease-in"
+};
 @Component({
   selector: 'app-daiquiri-list',
   templateUrl: './daiquiri-list.component.html',
@@ -11,16 +16,16 @@ import { timingSafeEqual } from 'crypto';
     trigger('openCloseItems', [
       // ...
       state('open', style({
-        height: '90vh',
+        height: '44px',
         opacity: 1,
         backgroundColor: 'rgba(0,0,0,.25)',
-        textShadow: `0 0 0.05em rgba(0, 0, 0, 0.8), -0.025em 0.025em 0.1em rgba(161, 4, 179),
-        -0.05em 0.05em 0.1em rgb(255, 255, 255), -0.1em 0.1em 0.3em rgb(0, 0, 0),
-        -0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5)`,
+        // textShadow: `0 0 0.05em rgba(0, 0, 0, 0.8), -0.025em 0.025em 0.1em rgba(161, 4, 179),
+        // -0.05em 0.05em 0.1em rgb(255, 255, 255), -0.1em 0.1em 0.3em rgb(0, 0, 0),
+        // -0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5)`,
         
       })),
       state('closed', style({
-        height: '70vh',
+        // height: '44px',
         opacity: 0.8,
         backgroundColor: 'rgba(161, 4, 179)',
         textShadow: `0 0 0.05em rgba(0, 0, 0, 0.8), -0.025em 0.025em 0.1em rgb(0, 0, 0),
@@ -54,12 +59,12 @@ import { timingSafeEqual } from 'crypto';
     trigger('openCloseContainer', [
       // ...
       state('open', style({
-        height: '90vh',
-        opacity: .8,
+        height: '44px',
+        opacity: 1,
         backgroundColor: 'rgba(0,0,0,.5)',
       })),
       state('closed', style({
-        height: '70vh',
+        height: '88px',
         opacity: 0.8,
         backgroundColor: 'rgba(161, 4, 179)',
       })),
@@ -87,6 +92,23 @@ import { timingSafeEqual } from 'crypto';
         animate('1s')
       ]),
     ]),
+    trigger("sideMenuLeft", [
+      transition(":enter", [
+        useAnimation(SidebarOpenAnimation, {
+          params: {
+            ...animationParams
+          }
+        })
+      ]),
+      transition(":leave", [
+        useAnimation(SidebarCloseAnimation, {
+          params: {
+            ...animationParams
+          }
+        })
+      ])
+    ]),
+    DropDownAnimation
   ]
   
 })
