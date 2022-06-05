@@ -33,6 +33,7 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
     NavBarComponent,
     TimerComponent,
     DaiquiriListComponent,
+    
   ],
   imports: [
     BrowserModule,

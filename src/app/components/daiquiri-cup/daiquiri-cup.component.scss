@@ -1,6 +1,7 @@
 img {
       width: 40%;
       transition: .75s ease;
+      pointer-events: none;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -14,8 +15,9 @@ img {
     img {
       width: 70% !important; 
       margin:0 auto !important;
-      top: 70% !important;
+      top: 30% !important;
       position: absolute;
+      pointer-events: none;
       // top: 50%;
       // left: 50%;
       // margin-right: -50%;

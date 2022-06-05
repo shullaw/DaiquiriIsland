@@ -3,6 +3,7 @@ import { DaiquiriListService } from '../../shared/services/daiquiri-list.service
 import { trigger, transition, state, animate, style, useAnimation, } from '@angular/animations';
 import { DropSidebarOpenAnimation, DropSidebarCloseAnimation, DropDownAnimation, SidebarOpenAnimation, SidebarCloseAnimation } from './animations';
 import { AbsoluteSourceSpan } from '@angular/compiler';
+import { Daiquiri } from 'src/app/shared/data/daiquiri-list-data';
 
 const animationParams = {
   menuWidth: "250px",
@@ -13,60 +14,13 @@ const animationParams = {
   templateUrl: './daiquiri-list.component.html',
   styleUrls: ['./daiquiri-list.component.scss'],
   animations: [
-    trigger('openCloseItems', [
-      // ...
-      state('open', style({
-        height: '44px',
-        opacity: 1,
-        backgroundColor: 'rgba(0,0,0,.25)',
-        // textShadow: `0 0 0.05em rgba(0, 0, 0, 0.8), -0.025em 0.025em 0.1em rgba(161, 4, 179),
-        // -0.05em 0.05em 0.1em rgb(255, 255, 255), -0.1em 0.1em 0.3em rgb(0, 0, 0),
-        // -0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5)`,
-        
-      })),
-      state('closed', style({
-        // height: '44px',
-        opacity: 0.8,
-        backgroundColor: 'rgba(161, 4, 179)',
-        textShadow: `0 0 0.05em rgba(0, 0, 0, 0.8), -0.025em 0.025em 0.1em rgb(0, 0, 0),
-        -0.05em 0.05em 0.1em rgb(255, 255, 255), -0.1em 0.1em 0.3em rgb(0, 0, 0),
-        -0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5)`
-      })),
-      transition('open => closed', [
-        animate('1s')
-      ]),
-      transition('closed => open', [
-        animate('0.5s')
-      ]),
-      transition('* => closed', [
-        animate('1s')
-      ]),
-      transition('* => open', [
-        animate('0.5s')
-      ]),
-      transition('open <=> closed', [
-        animate('0.5s')
-      ]),
-      transition ('* => open', [
-        animate ('1s',
-          style ({ opacity: '*' }),
-        ),
-      ]),
-      transition('* => *', [
-        animate('1s')
-      ]),
-    ]),
     trigger('openCloseContainer', [
       // ...
       state('open', style({
-        height: '44px',
         opacity: 1,
-        backgroundColor: 'rgba(0,0,0,.5)',
       })),
       state('closed', style({
-        height: '88px',
         opacity: 0.8,
-        backgroundColor: 'rgba(161, 4, 179)',
       })),
       transition('open => closed', [
         animate('1s')
@@ -83,40 +37,43 @@ const animationParams = {
       transition('open <=> closed', [
         animate('0.5s')
       ]),
-      transition ('* => open', [
-        animate ('1s',
-          style ({ opacity: '*' }),
+      transition('* => open', [
+        animate('1s',
+          style({ opacity: '*' }),
         ),
       ]),
       transition('* => *', [
         animate('1s')
       ]),
     ]),
-    trigger("sideMenuLeft", [
-      transition(":enter", [
-        useAnimation(SidebarOpenAnimation, {
-          params: {
-            ...animationParams
-          }
-        })
-      ]),
-      transition(":leave", [
-        useAnimation(SidebarCloseAnimation, {
-          params: {
-            ...animationParams
-          }
-        })
+
+      trigger('simpleFadeAnimation', [
+
+        // the "in" style determines the "resting" state of the element when it is visible.
+        state('open', style({ opacity: 1 })),
+
+        // fade in when created. this could also be written as transition('void => *')
+        transition(':enter', [
+          style({ opacity: 0 }),
+          animate(1000)
+        ]),
+
+        // fade out when destroyed. this could also be written as transition('void => *')
+        transition(':leave',
+          animate(1000, style({ opacity: 0 })))
+
       ])
-    ]),
-    DropDownAnimation
-  ]
-  
+    ]
 })
+
+
+
 export class DaiquiriListComponent implements OnInit, AfterViewInit {
 
-  daiquiriList: any = [];
+  daiquiriList: Daiquiri[] = [];
+  backgrounds: string[] = [];
   currentColor!: string;
-  height!:number;
+  height!: number;
   end!: number;
   overflow!: string;
   ddStatus: string = "ddClosed";
@@ -124,22 +81,28 @@ export class DaiquiriListComponent implements OnInit, AfterViewInit {
   // @Input() contentHeight!: number;
   @Input() isOpen!: boolean;
   @ViewChild('scrollViewport') cdkVirtualScrollViewport: any;
+  active: number = -1;
 
-  constructor(private daiquiriListService: DaiquiriListService) {}
+  constructor(public daiquiriListService: DaiquiriListService) { }
 
 
   ngOnInit(): void {
     this.getGetDaiquiriList();
-    console.log("init: ", this.daiquiriList.length);
+    console.log("init: ", this.daiquiriList);
+    this.active = -1;
+    this.daiquiriList.forEach((daq: Daiquiri) => {
+      daq.background = this.colorGenerator(daq.color);
+    });
+
   }
 
   ngAfterViewInit(): void {
     console.log(this.calculateContainerHeight());
-    console.log("after: ", this.daiquiriList.length);
+    console.log("after: ", this.daiquiriList);
 
   }
 
-  getGetDaiquiriList(){
+  getGetDaiquiriList() {
     this.daiquiriList = this.daiquiriListService.getDaiquiriList();
   }
 
@@ -147,7 +110,7 @@ export class DaiquiriListComponent implements OnInit, AfterViewInit {
     return this.daiquiriList[i].hover = true;
   }
 
-  calculateContainerHeight(): string {
+  calculateContainerHeight(): number {
     const numberOfItems = this.daiquiriList.length;
     // This should be the height of your item in pixels
     const itemHeight = 44;
@@ -158,20 +121,34 @@ export class DaiquiriListComponent implements OnInit, AfterViewInit {
     }, 300);
     if (numberOfItems <= visibleItems) {
       console.log(`${itemHeight * numberOfItems}`);
-      return `${itemHeight * numberOfItems}px`;
+      return itemHeight * numberOfItems;
     }
-    return `${itemHeight * visibleItems}px`;
+    return itemHeight * visibleItems;
   }
 
   nextBatch(currIndex: number, items: any[]) {
     const start = this.cdkVirtualScrollViewport.getRenderedRange().start;
     this.end = this.cdkVirtualScrollViewport.getRenderedRange().end;
     const total = this.cdkVirtualScrollViewport.getDataLength();
-console.log(`start = ${start}\nend is ${this.end}\ntotal is ${total}`)
+    console.log(`start = ${start}\nend is ${this.end}\ntotal is ${total}`)
     // if (this.end == total) {
     //   // console.log("end reached increase page no")
     // }
-    
+
+  }
+
+  onClick(any: any) {
+    console.log(any);
+  }
+
+  colorGenerator(color: string): string {
+    // color.split(',');
+    let newColor = color.replace('rgb(', '').split(',');
+    let r = parseInt(newColor[0]);
+    let g = parseInt(newColor[1]);
+    let b = parseInt(newColor[2]);
+    let compliment = 'rgba(' + (255 - r).toString() + ', ' + (255 - g).toString() + ', ' + (255 - b).toString() + ',.8)';
+    return compliment;
   }
 
 }

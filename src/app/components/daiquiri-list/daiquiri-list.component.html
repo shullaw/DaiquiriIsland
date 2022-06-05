@@ -1,25 +1,32 @@
-<!-- <div [style.height]="calculateContainerHeight()" > -->
-<cdk-virtual-scroll-viewport itemSize="50" class="viewport" #scrollViewport>
+<cdk-virtual-scroll-viewport itemSize="44" class="viewport" #scrollViewport minBufferPx="1200" maxBufferPx="1200">
   <ul>
-    <li class="mdc-list-item site-list-item__primary-text" *cdkVirtualFor="let daq of daiquiriList; let i = index"
-      (mouseover)="daq.hovering=true" (mouseout)="daq.hovering=false" (click)="daq.active = !daq.active"
-      class="daq-text"
-      [ngStyle]="{
-        color: daq.hovering ? daq.color : 'white',
-        border: '2px solid ' + daq.color,
-        textShadow: '0 0 0.05em rgba(0, 0, 0, 0.8), -0.025em 0.025em 0.1em rgba(161, 4, 179), -0.05em 0.05em 0.1em rgb(255, 255, 255), -0.1em 0.1em 0.3em rgb(0, 0, 0),-0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5)'}"
-        >
-        <div>
+    <li class="mdc-list-item site-list-item__primary-text" 
+    *cdkVirtualFor="let daq of daiquiriList; let i = index"
+      (mouseover)="daq.hovering=true"
+      (mouseout)="daq.hovering=false" 
+      (click)="daq.collapsed = !daq.collapsed"
+      >
+      <div class="daq-text"
+        [ngStyle]="{
+          'background' : daq.collapsed ? 'rgba(161, 4, 179, 0)' : 'linear-gradient('+daq.background+','+daq.color+','+daq.background+')',
+          'border-color': daq.collapsed ? daq.background : daq.color,
+          'border-radius': daq.collapsed?'50px':'25px',
+          'color': daq.color,
+          'height': daq.collapsed?'44px': daq.liquors?.length*50+44+'px',
+          'text-shadow': '0 0 0.05em rgba(0, 0, 0, 0.8), -0.025em 0.025em 0.1em rgba(161, 4, 179), -0.05em 0.05em 0.1em rgb(255, 255, 255), -0.1em 0.1em 0.3em rgb(0, 0, 0),-0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5)'}"
+          >
         {{daq.name}}
-      <!-- <div *ngIf="daq.active" [@openCloseContainer]="daq.active ? 'open' : 'closed'">
-        CONTENT
-      </div> -->
-    </div>
-
+        <li class="mdc-list-item site-list-item__primary-text inner" 
+        >
+          <div class="menu-item" *ngIf="!daiquiriList[i].collapsed"
+          [ngStyle]="{opacity: daq.collapsed ? 0 : 1}"
+          style="text-transform: none; transition: 'opacity ease-in 1s'"
+          [ngStyle]="{'color': daq.background, 'font-size': 'x-large'}"
+          >
+          <p *ngFor="let l of daiquiriList[i].liquors">{{l}}</p>
+          </div>
+        </li>
+      </div>
     </li>
   </ul>
 </cdk-virtual-scroll-viewport>
-<!-- </div> -->
-<!-- *ngIf="team.liquors.includes('vodka')" -->
-
-<!-- [ngStyle]="{color: daq.hovering==true  ? daq.color : 'transparent' }" -->

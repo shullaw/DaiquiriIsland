@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { map, Observable, Subject, Subscription, take, timer } from 'rxjs';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-
+import { Daiquiri, daiquiriList } from 'src/app/shared/data/daiquiri-list-data';
 
 @Component({
   selector: 'app-daiquiri-cup',
@@ -95,7 +95,6 @@ export class DaiquiriCupComponent implements OnInit {
 
   ngOnInit(): void {
     this.timer();
-
   }
 
   ngOnDestroy() {
