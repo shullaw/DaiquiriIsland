@@ -1,7 +1,11 @@
-<div class="col-sm-10 col-md-8 justify-content-center align-self-center align-items-start mx-auto mt-5 mt-md-0 cups">
-<div *ngFor="let daq of daiquirisList" [@fade]="daq.status">
-  <img src="../../../assets/img/daiquiri/{{daiquiris[counter]}}.png" alt="Avatar">
+<div *ngIf="animationEnd" class="col-sm-10 col-md-8 justify-content-center align-self-center align-items-start mx-auto mt-5 mt-md-0 cups">
+ 
+  <div>
+  <img [ngStyle]="{opacity: daiquiriListService.initClick?1:0}" id="emptyCup" src="../../../assets/img/daiquiri/empty-cup.png" alt="Avatar">
+</div>
+  <div *ngFor="let daq of daiquiris; let i=index;">
+  <img class="daiquiri" [ngStyle]="{opacity: daiquiriList[i].active?1:0}" src="../../../assets/img/daiquiri/{{daiquiris[i]}}.png" alt="Avatar">
+  </div>
+
 </div>
 
-<img id="emptyCup" src="../../../assets/img/daiquiri/empty-cup.png" alt="Avatar">
-</div>

@@ -1,27 +1,28 @@
-<cdk-virtual-scroll-viewport itemSize="44" class="viewport" #scrollViewport minBufferPx="1200" maxBufferPx="1200">
-  <ul>
+<cdk-virtual-scroll-viewport itemSize="44" class="viewport" #scrollViewport 
+minBufferPx="1200" maxBufferPx="1200" [@simpleFadeAnimation]>
+<app-hours></app-hours>
+  
+<ul>
     <li class="mdc-list-item site-list-item__primary-text" 
     *cdkVirtualFor="let daq of daiquiriList; let i = index"
       (mouseover)="daq.hovering=true"
       (mouseout)="daq.hovering=false" 
-      (click)="daq.collapsed = !daq.collapsed"
+      (click)="activate(i);"
       >
       <div class="daq-text"
         [ngStyle]="{
-          'background' : daq.collapsed ? 'rgba(161, 4, 179, 0)' : 'linear-gradient('+daq.background+','+daq.color+','+daq.background+')',
+          'background' : 'linear-gradient('+daq.background+','+daq.color+','+daq.background+')',
           'border-color': daq.collapsed ? daq.background : daq.color,
           'border-radius': daq.collapsed?'50px':'25px',
           'color': daq.color,
-          'height': daq.collapsed?'44px': daq.liquors?.length*50+44+'px',
-          'text-shadow': '0 0 0.05em rgba(0, 0, 0, 0.8), -0.025em 0.025em 0.1em rgba(161, 4, 179), -0.05em 0.05em 0.1em rgb(255, 255, 255), -0.1em 0.1em 0.3em rgb(0, 0, 0),-0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5)'}"
+          'height': daq.collapsed?'8vh': daq.liquors?.length*6+8+'vh'}"
           >
         {{daq.name}}
         <li class="mdc-list-item site-list-item__primary-text inner" 
         >
-          <div class="menu-item" *ngIf="!daiquiriList[i].collapsed"
-          [ngStyle]="{opacity: daq.collapsed ? 0 : 1}"
-          style="text-transform: none; transition: 'opacity ease-in 1s'"
-          [ngStyle]="{'color': daq.background, 'font-size': 'x-large'}"
+          <div class="inner" *ngIf="!daiquiriList[i].collapsed"
+          style="text-transform: none;"
+          [ngStyle]="{'color': daq.background,'font-size': 'x-large'}"
           >
           <p *ngFor="let l of daiquiriList[i].liquors">{{l}}</p>
           </div>

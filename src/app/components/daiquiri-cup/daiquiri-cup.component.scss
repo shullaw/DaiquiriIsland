@@ -1,12 +1,12 @@
 img {
       width: 40%;
-      transition: .75s ease;
+      // transition: all 1s linear;
       pointer-events: none;
     position: absolute;
     top: 50%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%) 
+    transform: translate(-50%, -50%); 
     }
     
 
@@ -29,17 +29,56 @@ img {
       width: 70% !important; 
       margin:0 auto !important;
       top: 70% !important;
-      -webkit-animation: fadeinout 4s linear forwards;
-      animation: fadeinout 4s linear forwards;
+      // -webkit-animation: fadein 1s linear infinite;
+      // animation: fadein 1s linear infinite;
     }
+  }
 
-    @-webkit-keyframes fadeinout {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
+  .daiquiri {
+    transition: 1s linear;
+    webkit-transition: 1s linear;
+    moz-transition: 1s linear;
+  }
+
+  #emptyCup {
+    transition: 1s linear;
+    webkit-transition: 1s linear;
+    moz-transition: 1s ;
+  }
+
+  @-webkit-keyframes fadein {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes fadein {
+    0% { opacity: 1; }
+    100% { opacity: 1; }
+  }
+
+  @-webkit-keyframes fadout {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  
+  @keyframes fadeout {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  @keyframes panUp {
+    from { 
+      transform: translate(-50%, 0%);
+      -webkit-transform: translate(-50%, 0%);
+      -moz-transform: translate(-50%, 0%);
+      -ms-transform: translate(-50%, 0%);
+      -o-transform: translate(-50%, 0%);
     }
-    
-    @keyframes fadeinout {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
+    to {
+      transform: translate(-50%, -50%); 
+      -webkit-transform: translate(-50%, -50%); 
+      -moz-transform: translate(-50%, -50%); 
+      -ms-transform: translate(-50%, -50%); 
+      -o-transform: translate(-50%, -50%); 
+      }
+
   }

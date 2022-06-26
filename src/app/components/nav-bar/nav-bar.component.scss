@@ -5,16 +5,10 @@
     right: 0;
     margin: auto;
     min-height: 60px;
-    // min-width: fit-content;
-    // display: flex;
     align-items: center;
-    // background-color: #8819d2;
     background-color: transparent;
     color: white;
-    // font-weight: 1000;
     font-family: Open Sans;
-    // width:30vw;
-    // float:left;
   }
   
   .side-menu {
@@ -30,7 +24,6 @@
     text-align: center;
     padding: 15px 0;
     border-bottom: 1px solid #dcdcdc;
-    // min-width: 100%;
     transition: all 0.25s;
     border-radius: 25px;
     box-shadow: 0px 8px darken(transparent, 25);
@@ -56,7 +49,6 @@
   @media only screen and (max-width: 768px) {
     /* For mobile phones: */
 .toolbar {
-    // position: absolute;
     top: 95%;
     left: 0;
     right: 0;
@@ -65,20 +57,15 @@
     min-height: 60px;
     min-width: fit-content;
     align-items: center;
-    // background-color: #8819d2;
     background-color: transparent;
     color: white;
-    // font-weight: 1000;
     font-family: Open Sans;
-    // width:fit-content;
-    // float:left;
   }
   
   .side-menu {
     height: 100vh;
     position: fixed;
     top: 0;
-    // width: 250px;
     background: transparent;
   }
   
@@ -97,11 +84,6 @@
   }
 }
 
-
-
-@media (min-width:640px) {
-  /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-}
 
 @media (min-width:1024px) {
 

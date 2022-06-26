@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CarouselPauseComponent } from './carousel-pause.component';
+import { HoursComponent } from './hours.component';
 
-describe('CarouselPauseComponent', () => {
-  let component: CarouselPauseComponent;
-  let fixture: ComponentFixture<CarouselPauseComponent>;
+describe('HoursComponent', () => {
+  let component: HoursComponent;
+  let fixture: ComponentFixture<HoursComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CarouselPauseComponent ]
+      declarations: [ HoursComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CarouselPauseComponent);
+    fixture = TestBed.createComponent(HoursComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

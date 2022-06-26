@@ -3,14 +3,7 @@
   width: 25vw;
   min-width: 100%;
   background: transparent;
-  // margin: 8em 8em 8em;
   scrollbar-width: none;
-  /* for Firefox */
-  // overflow-y: scroll;
-  // background-color: rgba(0, 0, 0, 0.25);
-  // background: url(../../../assets/img/nakamoto-forestry-armstrong-rustic-brown.jpg) no-repeat center center fixed;
-  // filter: drop-shadow(4px 4px 100px rgb(95, 95, 95));
-  // filter:opacity(50%);
   border-radius: 16px;
   top: 0px;
   transition: 1s;
@@ -34,7 +27,9 @@ li {
   align-items: center;
   padding: 12px 0;
   box-sizing: border-box;
-  font-size: xx-large;
+  font-size: 3vw;
+  text-shadow: 0 0 0.05em rgba(0, 0, 0, 0.8), -0.025em 0.025em 0.1em rgba(161, 4, 179), -0.05em 0.05em 0.1em rgb(255, 255, 255), -0.1em 0.1em 0.3em rgb(0, 0, 0),-0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5)
+
 }
 
 
@@ -42,10 +37,11 @@ li {
   margin-left: 5px;
   height: 44px;
   width: fit-content;
-  transition: all .75s;
+  transition: all 1000ms;
   border: 3px solid;
   border-radius: 50px;
   padding: 10px;
+  animation: fadein 2s;
   &:hover {
     transform: scale(1.1);
     transform: translate3d(.5rem, -.5rem, .5rem);
@@ -70,23 +66,7 @@ ul {
 p {
   animation: fadein 1s;
 }
-  
-@keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
 
-/* Firefox < 16 */
-@-moz-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
 
 
 @media only screen and (max-width: 768px) {
@@ -99,7 +79,7 @@ p {
     border-radius: 16px;
     position:sticky;
     bottom: 0;
-    transition: 1s;
+    transition: 2s;
     background-color: rgba(0,0,0,.5);
     &::-webkit-scrollbar {
       display: none;
@@ -117,7 +97,6 @@ p {
   li {
     counter-increment: index;
     display: flex;
-    // align-items: center;
     width:90vw;
     padding: 12px 12px;
     box-sizing: border-box;
@@ -132,10 +111,10 @@ p {
   margin-right: 5px;
   width:90vw;
   text-align: center;
-  transition: all .75s;
   border: 3px solid;
   border-radius: 50px; 
   padding: 10px;
+  animation: fadein 2s;
   &:hover {
     transform: none;
     transform: none;
@@ -144,5 +123,42 @@ p {
 }
 
 }
+
+@keyframes fadein {
+  from { opacity: 0;
+   }
+  to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes rollUp {
+  from {
+    transform: translate(0, -200%);
+    -webkit-transform: translate(0, -200%);
+    -moz-transform: translate(0, -200%);
+    -ms-transform: translate(0, -200%);
+    -o-transform: translate(0, -200%);
+    }
+  to { 
+    transform: translate(0, 0%);
+    -webkit-transform: translate(0, 0%);
+    -moz-transform: translate(0, 0%);
+    -ms-transform: translate(0, 0%);
+    -o-transform: translate(0, 0%);
+  }
+}
+
+
 
 

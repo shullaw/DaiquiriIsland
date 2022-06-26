@@ -4,8 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CardComponent } from './components/card/card.component';
-import { CarouselPauseComponent } from './components/carousel-pause/carousel-pause.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DaiquiriCupComponent } from './components/daiquiri-cup/daiquiri-cup.component';
@@ -23,16 +21,17 @@ import { provideMessaging, getMessaging } from '@angular/fire/messaging';
 import { providePerformance, getPerformance } from '@angular/fire/performance';
 import { provideRemoteConfig, getRemoteConfig } from '@angular/fire/remote-config';
 import { provideStorage, getStorage } from '@angular/fire/storage';
+import { DaiquiriListService } from './shared/services/daiquiri-list.service';
+import { HoursComponent } from './hours/hours.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardComponent,
-    CarouselPauseComponent,
     DaiquiriCupComponent,
     NavBarComponent,
     TimerComponent,
     DaiquiriListComponent,
+    HoursComponent,
     
   ],
   imports: [
@@ -50,7 +49,7 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
     // provideRemoteConfig(() => getRemoteConfig()),
   ],
   providers: [
-    ScreenTrackingService, UserTrackingService
+    ScreenTrackingService, UserTrackingService, DaiquiriListService
   ],
   bootstrap: [AppComponent]
 })

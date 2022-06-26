@@ -1,14 +1,16 @@
-<div class="content" role="main">
+<div class="content" role="main" #main>
   <div class="wooden-text">
     <div>Daiquiri</div>
     <div class="small">Island</div>
   </div>
 
-  <app-nav-bar></app-nav-bar>
-  <app-daiquiri-cup></app-daiquiri-cup>
+  <app-nav-bar [animationEnd]="animationEnd"></app-nav-bar>
+  <app-daiquiri-cup [animationEnd]="animationEnd"></app-daiquiri-cup>
   
 
+
   <router-outlet></router-outlet>
+
 </div>
 
 

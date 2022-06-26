@@ -9,6 +9,8 @@ body{
    -moz-background-size: cover;
    -o-background-size: cover;
    background-size: cover;
+   background-position-y: 50%;
+   animation: dropDownBackground 4s;
 }
 
 body::before{
@@ -29,6 +31,8 @@ body::before{
 }
 
 
+
+
 .wooden-text {
   position: absolute;
   top: 0;
@@ -45,18 +49,17 @@ body::before{
     -0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5);
   translate: translate3d(0, 0, 0);
   font-family: "Muli", sans-serif;
-  // font-size: 32vmin;
   font-size: 20vw;
   line-height: 1;
   font-weight: 900;
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
+  animation: dropDownText 4s;
 }
  
  :host {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    // font-size: 14px;
     color: #333;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
@@ -78,6 +81,8 @@ body::before{
      -moz-background-size: cover;
      -o-background-size: cover;
      background-size: cover;
+     background-position-y: 50%;
+     animation: dropDownBackground 4s;
   }
   
   body::before{
@@ -96,8 +101,6 @@ body::before{
     z-index: -1;
     
   }
-  
-  
   .wooden-text {
     position: absolute;
     top: 0;
@@ -114,22 +117,79 @@ body::before{
       -0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5);
     translate: translate3d(0, 0, 0);
     font-family: "Muli", sans-serif;
-    // font-size: 32vmin;
     font-size: 20vw;
     line-height: 1;
     font-weight: 900;
     text-align: center;
     text-transform: uppercase;
     white-space: nowrap;
+    animation: dropDownText 2s;
   }
    
    :host {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-      // font-size: 14px;
       color: #333;
       box-sizing: border-box;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
    }
   
+}
+
+
+@keyframes dropDownBackground {
+  from { background-position-y: 400% ; }
+  to   { background-position-y: 50% ; }
+
+}
+
+@keyframes dropDownText {
+  from {
+    transform: translate(0, -200%);
+    -webkit-transform: translate(0, -200%);
+    -moz-transform: translate(0, -200%);
+    -ms-transform: translate(0, -200%);
+    -o-transform: translate(0, -200%);
+    }
+  to { 
+    transform: translate(0, 0%);
+    -webkit-transform: translate(0, 0%);
+    -moz-transform: translate(0, 0%);
+    -ms-transform: translate(0, 0%);
+    -o-transform: translate(0, 0%);
+  }
+}
+
+@-moz-keyframes dropDownText {
+  from {
+    transform: translate(0, -200%);
+    -webkit-transform: translate(0, -200%);
+    -moz-transform: translate(0, -200%);
+    -ms-transform: translate(0, -200%);
+    -o-transform: translate(0, -200%);
+    }
+  to { 
+    transform: translate(0, 0%);
+    -webkit-transform: translate(0, 0%);
+    -moz-transform: translate(0, 0%);
+    -ms-transform: translate(0, 0%);
+    -o-transform: translate(0, 0%);
+  }
+}
+
+@-webkit-keyframes dropDownText{
+  from {
+    transform: translate(0, -200%);
+    -webkit-transform: translate(0, -200%);
+    -moz-transform: translate(0, -200%);
+    -ms-transform: translate(0, -200%);
+    -o-transform: translate(0, -200%);
+    }
+  to { 
+    transform: translate(0, 0%);
+    -webkit-transform: translate(0, 0%);
+    -moz-transform: translate(0, 0%);
+    -ms-transform: translate(0, 0%);
+    -o-transform: translate(0, 0%);
+  }
 }

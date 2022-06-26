@@ -48,27 +48,17 @@ const animationParams = {
 
 export class NavBarComponent implements OnInit {
 
-  // @ViewChild('navdrop') navdrop!: ElementRef;
-
   @Input() daiquiriList: any;
   @Output() isOpen: boolean = true;
-  // contentHeight!: number;
+  @Input() animationEnd:boolean = false;
+
   constructor() { }
 
   
 
   ngOnInit(): void {
   }
-  // ngAfterViewInit() {
-  //   this.contentHeight =  this.myIdentifier.nativeElement.offsetHeight;
-  // }
-  // ngOnChanges(changes: SimpleChanges) {
-  //   console.log(changes)
-  // }
-  toggle() {
-    console.log(this.isOpen);
-    // this.navdrop.nativeElement.classList.toggle("show");
-  }
+
 
 
 
