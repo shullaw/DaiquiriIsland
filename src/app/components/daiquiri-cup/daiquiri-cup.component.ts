@@ -93,7 +93,6 @@ export class DaiquiriCupComponent implements OnInit {
   source!: Observable<number>;
   time!: Subscription;
   componentDestroyed$: Subject<boolean> = new Subject()
-
   
   daiquirisList: { str: string; active: string }[] = [
     {
@@ -103,9 +102,6 @@ export class DaiquiriCupComponent implements OnInit {
   ];
   active = false;
 
-
-
-
   constructor(public daiquiriListService: DaiquiriListService) {
 
   }
@@ -114,11 +110,6 @@ export class DaiquiriCupComponent implements OnInit {
 
   ngOnInit(): void {
     this.getGetDaiquiriList();
-  }
-
-  ngOnDestroy() {
-    // prevent memory leak when component destroyed
-    this.time.unsubscribe();
   }
 
   getGetDaiquiriList() {

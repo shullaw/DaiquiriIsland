@@ -1,7 +1,5 @@
 <cdk-virtual-scroll-viewport itemSize="44" class="viewport" #scrollViewport 
-minBufferPx="1200" maxBufferPx="1200" [@simpleFadeAnimation]>
-<app-hours></app-hours>
-  
+minBufferPx="1200" maxBufferPx="1200" [@simpleFadeAnimation]>  
 <ul>
     <li class="mdc-list-item site-list-item__primary-text" 
     *cdkVirtualFor="let daq of daiquiriList; let i = index"

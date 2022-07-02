@@ -1,20 +1,14 @@
-<!-- <div class="wooden-text">
-    <div class="small">
-        hours works!
-    </div>
-</div> -->
-
 <ng-template #content let-modal>
     <div class="modal-header">
-      <h4 class="modal-title">Modal title</h4>
-      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+      <h4 class="modal-title fat-text">{{modalText}}</h4>
+      <button type="button" class="btn btn-close" (click)="modal.close()">X</button>
     </div>
     <div class="modal-body">
-      <p>One fine body&hellip;</p>
+      <div class="grid-container" *ngFor="let day of weekday; let i = index">
+        <div [ngClass]="{'day':day==currentDayID}">{{day}}</div>
+        <div [ngClass]="{'hours':day==currentDayID}">{{hours[i][0]}} - {{hours[i][1]}}</div>
+      </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
     </div>
   </ng-template>
-
-  <button style="cursor: pointer;"class="btn btn-outline-primary mb-2 me-2" (click)="openVerticallyCentered(content)">Modal vertically centered</button>

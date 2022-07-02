@@ -4,9 +4,11 @@
     <div class="small">Island</div>
   </div>
 
-  <app-nav-bar [animationEnd]="animationEnd"></app-nav-bar>
-  <app-daiquiri-cup [animationEnd]="animationEnd"></app-daiquiri-cup>
-  
+  <div  *ngIf="!modalIsOpen">
+  <app-nav-bar></app-nav-bar>
+  <app-daiquiri-cup></app-daiquiri-cup>
+</div>
+  <app-hours *ngIf="animationEnd>0"></app-hours>
 
 
   <router-outlet></router-outlet>

@@ -51,7 +51,7 @@ export class NavBarComponent implements OnInit {
   @Input() daiquiriList: any;
   @Output() isOpen: boolean = true;
   @Input() animationEnd:boolean = false;
-
+  
   constructor() { }
 
   

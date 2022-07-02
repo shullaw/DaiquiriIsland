@@ -1,3 +1,75 @@
-button {
-    z-index: 9999;
+.fat-text{
+// position: absolute;
+top: 0;
+left: 0;
+display: flex;
+justify-content: center;
+flex-direction: column;
+width: 100%;
+height: 100%;
+color: #fff;
+mix-blend-mode: darken;
+text-shadow: 0 0 0.05em rgba(0, 0, 0, 0.2), -0.025em 0.025em 0.1em #000,
+  -0.05em 0.05em 0.1em #000, -0.1em 0.1em 0.3em #000,
+  -0.1em 0.1em 0.5em rgba(0, 0, 0, 0.5);
+translate: translate3d(0, 0, 0);
+font-family: "Muli", sans-serif;
+font-size: 5vw;
+line-height: 1;
+font-weight: 900;
+text-align: center;
+text-transform: uppercase;
+white-space: nowrap;
+}
+
+.modal-content {
+  border-radius: 6px;
+  background-color: transparent !important;
+background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.1881302862942052) 50%, rgba(255,255,255,0.1) 100%);
+}
+.modal-header {
+  display: flex;
+  flex-direction: row;
+    width:auto;
+    contain: layout;
+    text-align: center;
+    .btn-close{
+      height: 20px;
+      background-color: rgba(255,255,255,.5);
+      border: 2px solid red;
+      border-radius: 50%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin: -2vw;
+    top: 0;
+    right: 0;
+    position: absolute;
+
+    }
+}
+
+.modal-content {
+  display: inline-table;
+}
+
+#left{
+  left: 0;
+    position: absolute;
+    margin: 2vw;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-gap: 4vw;
+  text-align: center;
+}
+
+.day {
+  color: red;
+}
+
+.hours {
+  color: red;
 }
